@@ -6,6 +6,11 @@ async function displayRegisterForm(req,res,next) {
     
 }
 
+async function storeRegisterData(req,res) {
+    
+    
+}
+
 
 module.exports = {
     displayRegisterForm
