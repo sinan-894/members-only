@@ -5,5 +5,5 @@ const router = Router()
 router.get('/register',displayRegisterForm)
 
 
-module.exports = Router
+module.exports = router 
 

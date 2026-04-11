@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const routes = require('./routes/index')
 
-app.set('views engine','ejs')
+app.set('view engine','ejs')
 app.set('viwes',path.join(__dirname,'views'))
 
 app.use(express.urlencoded({extended:true}))
