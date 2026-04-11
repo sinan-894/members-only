@@ -1,7 +1,8 @@
 const { Router } = require('express')
 const { displayRegisterForm }  = require('../controller/form')
+const router = Router()
 
-Router.length('/register',displayRegisterForm)
+router.get('/register',displayRegisterForm)
 
 
 module.exports = Router
