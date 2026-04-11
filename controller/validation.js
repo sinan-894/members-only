@@ -20,6 +20,18 @@ exports.validateRegister = [
         res.locals.data = matchedData(req)
         next()
     }
+]
 
 
+exports.validateLogin = [
+    body('username'),
+    body('password'),
+   (req,res,next)=>{
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            return res.status(400).render('login',{errors:errors.array()})
+        }
+        res.locals.data = matchedData(req)
+        next()
+   }
 ]
