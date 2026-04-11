@@ -12,8 +12,13 @@ async function storeRegisterData(req,res) {
     
 }
 
+function displayLoginForm(req,res,next){
+    res.render('login')
+}
+
 
 module.exports = {
     displayRegisterForm,
     storeRegisterData,
+    displayLoginForm,
 }
