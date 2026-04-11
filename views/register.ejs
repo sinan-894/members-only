@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1>register user</h1>
-    <ul>
-        <% errors.forEach(error => { %>
-            <li><%= error.msg %></li>
-        <% }) %>
-    </ul>
+    <% if (locals.errors) { %>
+        <ul>
+            <% locals.errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
     <form action="/register" method="post">
         <div>
             <label for="full-name"> full name:</label><br>

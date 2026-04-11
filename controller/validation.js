@@ -1,4 +1,3 @@
-const { localsName } = require('ejs')
 const {body,validationResult, matchedData} = require('express-validator')
 
 
@@ -14,11 +13,11 @@ exports.validateRegister = [
     body('password-confirm')
         .custom((value,{req})=> value === req.body.password).withMessage('passwords does not match'),
     (req,res,next)=>{
-        const errors = validationResult()
+        const errors = validationResult(req)
         if(!errors.isEmpty()){
             return res.status(400).render('register',{errors:errors.array()})
         }
-        locals.data = matchedData()
+        res.locals.data = matchedData(req)
         next()
     }
 

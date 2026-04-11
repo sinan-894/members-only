@@ -1,9 +1,10 @@
 const { Router } = require('express')
-const { displayRegisterForm }  = require('../controller/form')
-const router = Router()
+const { displayRegisterForm, storeRegisterData }  = require('../controller/form')
+const { validateRegister } = require('../controller/validation')
+const routes = Router()
 
-router.get('/register',displayRegisterForm)
+routes.get('/register',displayRegisterForm)
+routes.post('/register',validateRegister,storeRegisterData)
 
-
-module.exports = router 
+module.exports = routes 
 
