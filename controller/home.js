@@ -15,7 +15,7 @@ const messagesTest = [
 ]
 function displayHomePage(req,res){
     res.render('homepage',{
-        isLogin:true,
+        isLogin:false,
         isMember:true,
         isAdmin:false,
         messages:messagesTest,

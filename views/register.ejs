@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>register user</h1>
+    <div>
+        already have an account?<a href="/login">login here</a>
+    </div>
     <% if (locals.errors) { %>
         <ul>
             <% locals.errors.forEach(error => { %>
