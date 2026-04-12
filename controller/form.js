@@ -1,3 +1,5 @@
+const { insertIntoUsers } = require("../database/queries")
+const { hashPassword } = require("../helpers/helper")
 
 
 
@@ -8,7 +10,19 @@ async function displayRegisterForm(req,res,next) {
 
 async function storeRegisterData(req,res) {
     console.log(res.locals.data)
-    res.redirect('/')
+    try{
+        insertIntoUsers({
+            username:res.locals.data.username,
+            password:await hashPassword(res.locals.data.password),
+            fullname:res.locals.data['full-name']
+
+        })
+        res.redirect('/')
+    }
+    catch(error){
+        console.log(error.log)
+        next(error)
+    }
     
 }
 

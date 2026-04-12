@@ -3,11 +3,10 @@ const pool = require('./pool')
 
 
 async function insertIntoUsers({fullname,username,password}) {
-    const hashedPassword = hashPassword(password)
     await pool.query(`
         INSERT INTO users (fullname,username,password)
         VALUES ($1,$2,$3);
-        `,[fullname,username,hashedPassword])
+        `,[fullname,username,password])
     
 }
 
