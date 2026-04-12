@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <% if (locals.isLogin) { %>
+    <% if (locals.isLogin || locals.isAdmin) { %>
         <% if (locals.errors.length>0) { %>
             <% locals.errors.forEach(error => { %>
                 <div><%= error.msg %></div>
@@ -31,9 +31,13 @@
         <% if (locals.messages) { %>
             <% messages.forEach(message => { %>
                 <div>
-                    <section><%= (locals.isMember)? message.author:"*********" %></section>
-                    <section><%= (locals.isMember)? message.date:"*********" %></section>
+                    <section><%= (locals.isMember || locals.isAdmin)? message.author:"*********" %></section>
+                    <section><%= (locals.isMember || locals.isAdmin)? message.date:"*********" %></section>
                     <section><%= message.text %></section>
+                    <% if (locals.isAdmin) { %>
+                        <a href="/delete?id=<%= message.id %>">delete</a>
+                    <% } %>
+
                 </div>
             <% }) %>
          
