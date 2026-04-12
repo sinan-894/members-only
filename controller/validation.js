@@ -1,4 +1,5 @@
 const {body,validationResult, matchedData} = require('express-validator')
+const { displayHomePage } = require('./home')
 
 
 exports.validateRegister = [
@@ -34,4 +35,18 @@ exports.validateLogin = [
         res.locals.data = matchedData(req)
         next()
    }
+]
+
+exports.validateMessage = [
+    body('message').not().isEmpty().withMessage('message cannot be empty'),
+    (req,res,next)=>{
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            res.status(400)
+            return displayHomePage(req,res,{errors:errors.array()})
+        }
+        res.locals.message = matchedData(req)
+        next()
+        
+    }
 ]

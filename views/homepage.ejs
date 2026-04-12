@@ -7,6 +7,13 @@
 </head>
 <body>
     <% if (locals.isLogin) { %>
+        <% if (locals.errors.length>0) { %>
+            <% locals.errors.forEach(error => { %>
+                <div><%= error.msg %></div>
+             
+            <% }) %>
+         
+        <% } %>
         <form action="/" method="post">
             <div>
                 <label for="message">message:</label>

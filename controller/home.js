@@ -11,15 +11,21 @@ const messagesTest = [
         text:'hi this is also test siuuuuu'
     }
 ]
-function displayHomePage(req,res,next){
+function displayHomePage(req,res,{errors=[]}={}){
     res.render('homepage',{
-        isLogin:false,
-        isMember:false,
-        messages:messagesTest
+        isLogin:true,
+        isMember:true,
+        messages:messagesTest,
+        errors:errors
     })
 }
 
+function storeMessage(req,res){
+    console.log(res.locals.message)
+    res.redirect('/')
+}
 
 module.exports = {
     displayHomePage,
+    storeMessage,
 }
