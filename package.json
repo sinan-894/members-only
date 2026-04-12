@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "app-dev": "node --watch --env-file=.env app.js"
+    "app-dev": "node --watch --env-file=.env app.js",
+    "setup-database" : "node --env-file=.env config/database.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "dependencies": {
     "ejs": "^5.0.1",
     "express": "^5.2.1",
-    "express-validator": "^7.3.2"
+    "express-validator": "^7.3.2",
+    "pg": "^8.20.0"
   }
 }
