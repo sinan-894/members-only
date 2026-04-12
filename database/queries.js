@@ -1,3 +1,4 @@
+const { use } = require('passport')
 const { hashPassword } = require('../helpers/helper')
 const pool = require('./pool')
 
@@ -29,8 +30,23 @@ async function deleteUserFromUsers({id}) {
     
 }
 
+async function getUserDataByUsername(username) {
+    const {rows} = await pool.query('select * from users where username=$1;',[username])
+    return rows[0]
+    
+}
+
+async function getUserDataById(id) {
+    const {rows} = await pool.query('select * from users where id=$1;',[id])
+    return rows[0]
+
+    
+}
+
 module.exports = {
     insertIntoMessages,
     insertIntoUsers,
+    getUserDataById,
+    getUserDataByUsername,
     deleteUserFromUsers,
 }
