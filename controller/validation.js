@@ -43,7 +43,8 @@ exports.validateMessage = [
         const errors = validationResult(req)
         if(!errors.isEmpty()){
             res.status(400)
-            return displayHomePage(req,res,{errors:errors.array()})
+            res.locals.errors = errors.array()
+            return displayHomePage(req,res)
         }
         res.locals.message = matchedData(req)
         next()

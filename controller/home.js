@@ -13,13 +13,12 @@ const messagesTest = [
         text:'hi this is also test siuuuuu'
     }
 ]
-function displayHomePage(req,res,{errors=[]}={}){
+function displayHomePage(req,res){
     res.render('homepage',{
         isLogin:true,
         isMember:true,
         isAdmin:false,
         messages:messagesTest,
-        errors:errors
     })
 }
 
