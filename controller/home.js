@@ -14,10 +14,12 @@ const messagesTest = [
     }
 ]
 function displayHomePage(req,res){
+    
     res.render('homepage',{
-        isLogin:false,
-        isMember:true,
-        isAdmin:false,
+        isLogin:req.user,
+        isMember:req.user && req.user.is_member,
+        isAdmin:req.user && req.user.is_admin,
+        fullname:req.user && req.user.fullname,
         messages:messagesTest,
     })
 }

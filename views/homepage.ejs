@@ -7,6 +7,7 @@
 </head>
 <body>
     <% if (locals.isLogin || locals.isAdmin) { %>
+        <section><%= locals.fullname %></section>
         <% if (locals.errors) { %>
             <% locals.errors.forEach(error => { %>
                 <div><%= error.msg %></div>
