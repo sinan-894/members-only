@@ -8,7 +8,14 @@
     </form>
     <% if (isNotMatch) { %>
         <section>Wrong passcode</section>
-
     <% } %>
+    <button onclick=toggleShowHide()>close</button>
 
 </div>
+
+<script>
+    const entryForm = document.querySelector('.members-entry')
+    const toggleShowHide = ()=>{
+        entryForm.style.display = entryForm.style.display=='flex'?'none':'flex'
+    }
+</script>

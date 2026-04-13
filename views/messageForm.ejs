@@ -1,0 +1,18 @@
+
+<div class="message-form">
+    <% if (locals.errors) { %>
+        <% locals.errors.forEach(error => { %>
+            <div class="error"><%= error.msg %></div>
+        
+        <% }) %>
+    
+    <% } %>
+    <form action="/" method="post">
+        <div>
+            <label for="message">message:</label>
+            <textarea name="message" id="message"></textarea>
+        </div>
+        <input type="submit" value="post">
+    </form>
+
+</div>

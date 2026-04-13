@@ -1,0 +1,74 @@
+:root{
+    --border :1px black solid;
+}
+
+*{
+}
+
+.home-header{
+    display: flex;
+    gap: 20px;
+    font-size: 1.2em;
+    margin: 20px 5px;
+    border-bottom: var(--border);
+    padding-bottom: 10px;
+}
+
+.message-list-container{
+    border-top: var(--border);
+    margin-top: 20px;
+}
+
+.message-container{
+    border-bottom: var(--border);
+    padding: 10px;
+}
+
+.message-text{
+    font-size: 1.6em;
+    margin-top: 20px;
+    color: blue;
+}
+
+.login-route{
+    font-size: 1.1em;
+}
+
+.message-form{
+    margin: 20px 5px;
+}
+
+.message-form > form{
+    margin-top: 10px;
+}
+.message-form > form> *{
+    margin-bottom: 5px ;
+}
+.message-form textarea{
+    width: 400px;
+    height: 100px;
+}
+.message-form label {
+    display: block;
+    margin-bottom: 10px ;
+
+}
+
+.members-entry{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    border: 2px black solid;
+    padding: 30px;
+    font-size: 1.3em;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: wheat;
+}
+.error{
+    color: red;
+}

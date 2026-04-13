@@ -4,41 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <% if (locals.isLogin || locals.isAdmin) { %>
-        <section><%= locals.fullname %></section>
-        <a href="/logout">logout</a>
-        <% if (locals.errors) { %>
-            <% locals.errors.forEach(error => { %>
-                <div><%= error.msg %></div>
-             
-            <% }) %>
-         
-        <% } %>
-        <form action="/" method="post">
-            <div>
-                <label for="message">message:</label><br>
-                <textarea name="message" id="message"></textarea>
-            </div>
-            <input type="submit" value="post">
-        </form>
+        <div class="home-header">
+            <section><%= locals.fullname %></section>
+            <a href="/logout">logout</a>
+        </div>
+        <%- include('messageForm') %>
         <% if (!locals.isMember) { %>
+            <button onclick=toggleShowHide()>Be a member</button>
             <%- include('membersEntryDiv',{isNotMatch:locals.isMembershipPasswordNotMatch}) %>
         <% } %>
     <% } else { %>
-        <div>
+        <div class="login-route">
             <a href="/login">log in </a> to post a message
         </div>
     <% } %>
+
+    <h2>messages</h2>
     
-    <div>
+    <div class="message-list-container">
         <% if (locals.messages) { %>
             <% messages.forEach(message => { %>
-                <div>
+                <div class="message-container">
                     <section><%= (locals.isMember || locals.isAdmin)? message.author:"*********" %></section>
                     <section><%= (locals.isMember || locals.isAdmin)? message.date:"*********" %></section>
-                    <section><%= message.text %></section>
+                    <section class="message-text"><%= message.text %></section>
                     <% if (locals.isAdmin) { %>
                         <a href="/delete?id=<%= message.id %>">delete</a>
                     <% } %>
