@@ -1,4 +1,5 @@
-const { updateMembershipInUsers } = require("../database/queries")
+const { updateMembershipInUsers, insertIntoMessages } = require("../database/queries")
+const { formatDate } = require("../helpers/helper")
 
 const messagesTest = [
     {
@@ -27,6 +28,13 @@ function displayHomePage(req,res){
 
 function storeMessage(req,res){
     console.log(res.locals.message)
+    if(!req.user) return res.redirect('/')
+    const id = req.user.id
+    insertIntoMessages({
+        id:id,
+        text:res.locals.message,
+        date:formatDate()
+    })
     res.redirect('/')
 }
 

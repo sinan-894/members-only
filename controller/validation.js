@@ -46,7 +46,7 @@ exports.validateMessage = [
             res.locals.errors = errors.array()
             return displayHomePage(req,res)
         }
-        res.locals.message = matchedData(req)
+        res.locals.message = matchedData(req).message
         next()
         
     }
