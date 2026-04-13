@@ -8,6 +8,7 @@
 <body>
     <% if (locals.isLogin || locals.isAdmin) { %>
         <section><%= locals.fullname %></section>
+        <a href="/logout">logout</a>
         <% if (locals.errors) { %>
             <% locals.errors.forEach(error => { %>
                 <div><%= error.msg %></div>
