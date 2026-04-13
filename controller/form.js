@@ -17,7 +17,7 @@ async function storeRegisterData(req,res) {
             fullname:res.locals.data['full-name']
 
         })
-        res.redirect('/')
+        res.redirect('/login')
     }
     catch(error){
         console.log(error.log)
