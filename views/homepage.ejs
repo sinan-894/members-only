@@ -33,7 +33,8 @@
                     <section><%= (locals.isMember || locals.isAdmin)? message.date:"*********" %></section>
                     <section class="message-text"><%= message.text %></section>
                     <% if (locals.isAdmin) { %>
-                        <a href="/delete?id=<%= message.id %>">delete</a>
+                        <button><a href="/delete?id=<%= message.id %>">delete</a></button>
+                        
                     <% } %>
 
                 </div>

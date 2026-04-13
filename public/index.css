@@ -100,3 +100,8 @@
 .register-form-container{
     margin-top: 10px;
 }
+
+button a{
+    text-decoration: none;
+    color: black;
+}
