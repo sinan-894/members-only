@@ -6,8 +6,10 @@ const session = require('express-session')
 const passport = require('passport') 
 require('./config/passport')
 
+const assetPath = path.join(__dirname,'public')
 app.set('view engine','ejs')
 app.set('viwes',path.join(__dirname,'views'))
+app.use(express.static(assetPath))
 
 //passport meddlware config
 
