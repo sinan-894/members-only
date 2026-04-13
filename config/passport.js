@@ -7,7 +7,6 @@ const LocalStrategy = require('passport-local').Strategy
 const verifyCallback =async (username,password,done)=>{
     try{
         const user = await getUserDataByUsername(username)
-        const match = await isPasswordMatch(password,user.password)
         if(!user)return done(null,false,{message:'no user found'})
         if(!await isPasswordMatch(password,user.password)) return done(null,false,{message:"invalid password"})
         

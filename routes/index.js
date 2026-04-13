@@ -12,7 +12,11 @@ routes.get('/delete',deleteMessage)
 routes.get('/register',displayRegisterForm)
 routes.post('/register',validateRegister,storeRegisterData)
 routes.get('/login',displayLoginForm)
-routes.post('/login',validateLogin,passport.authenticate('local'),storeLoginData)
+routes.post('/login',validateLogin,passport.authenticate('local',{
+    successRedirect:'/',
+    failureMessage:'invalid credentials',
+    failureRedirect:'/login'
+}))
 routes.post('/add-member',validateMembersPassword,addMember)
 routes.get('/logout',logout)
 

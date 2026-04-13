@@ -27,7 +27,7 @@ async function storeRegisterData(req,res) {
 }
 
 function displayLoginForm(req,res,next){
-    res.render('login')
+    res.render('login',{session:req.session})
 }
 
 async function storeLoginData(req,res,next) {

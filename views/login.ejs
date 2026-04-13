@@ -9,16 +9,18 @@
     <h1>Login</h1>
     <div>if you dont have an account <a href="/register">register here</a></div>
 
+    <section><%= locals.session.messages %></section>
+
    <form action="/login" method="post">
         <div>
             <label for="username">username:</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" required>
         </div>
         <div>
             <label for="password">password:</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
         </div>
-        <input type="submit" name="submit" value="submit" id="submit">
+        <input type="submit" name="submit" value="submit" id="submit" >
 
    </form> 
     
