@@ -4,38 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <h1>register user</h1>
-    <div>
+    <div class="login-route">
         already have an account?<a href="/login">login here</a>
     </div>
-    <% if (locals.errors) { %>
-        <ul>
-            <% locals.errors.forEach(error => { %>
-                <li><%= error.msg %></li>
-            <% }) %>
-        </ul>
-    <% } %>
-    <form action="/register" method="post">
-        <div>
-            <label for="full-name"> full name:</label><br>
-            <input type="text" name="full-name" id="full-name">
-        </div>
-        <div>
-            <label for="username">username:</label><br>
-            <input type="text" name="username" id="username">
-        </div>
-        <div>
-            <label for="password">password:</label><br>
-            <input type="password" name="password" id="password">
-        </div>
-        <div>
-            <label for="password-confirm">confirm your password:</label><br>
-            <input type="password" name="password-confirm" id="password-confirm">
-        </div>
-        <input type="submit" name="submit" value="submit" id="submit">
-    </form>
+    <div class="register-form-container">
+        <% if (locals.errors) { %>
+            <ul>
+                <% locals.errors.forEach(error => { %>
+                    <li class="error"><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+        <form action="/register" method="post" class="register-form">
+            <div>
+                <label for="full-name"> full name:</label>
+                <input type="text" name="full-name" id="full-name">
+            </div>
+            <div>
+                <label for="username">username:</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="password">password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <label for="password-confirm">confirm your password:</label>
+                <input type="password" name="password-confirm" id="password-confirm">
+            </div>
+            <input type="submit" name="submit" value="submit" id="submit">
+        </form>
+
+    </div>
     
 </body>
 </html>

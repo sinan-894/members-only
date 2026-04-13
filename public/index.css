@@ -31,6 +31,7 @@
 
 .login-route{
     font-size: 1.1em;
+    margin-bottom: 5px;
 }
 
 .message-form{
@@ -82,4 +83,19 @@
     margin-bottom: 5px;
 
 
+}
+
+
+.register-form > *{
+    margin-bottom: 10px;
+
+}
+
+.register-form label{
+    display: block;
+    margin-bottom: 2px;
+}
+
+.register-form-container{
+    margin-top: 10px;
 }
