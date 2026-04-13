@@ -1,20 +1,6 @@
 const { updateMembershipInUsers, insertIntoMessages, getAllMessages } = require("../database/queries")
 const { formatDate } = require("../helpers/helper")
 
-const messagesTest = [
-    {
-        id:1,
-        author:'messi',
-        date:new Date(),
-        text:'hi this is test message'
-    },
-    {
-        id:2,
-        author:'ronaldo',
-        date:new Date(),
-        text:'hi this is also test siuuuuu'
-    }
-]
 async function displayHomePage(req,res){
     
     res.render('homepage',{
@@ -27,7 +13,6 @@ async function displayHomePage(req,res){
 }
 
 function storeMessage(req,res){
-    console.log(res.locals.message)
     if(!req.user) return res.redirect('/')
     const id = req.user.id
     insertIntoMessages({
@@ -45,7 +30,6 @@ function deleteMessage(req,res){
 
 async function addMember(req,res){
     if(!req.user) return res.redirect('/')
-    console.log('new member',req.user.id)
     await updateMembershipInUsers(req.user.id)
     
     res.redirect('/')

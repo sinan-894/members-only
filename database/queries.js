@@ -1,5 +1,4 @@
 const { use } = require('passport')
-const { hashPassword } = require('../helpers/helper')
 const pool = require('./pool')
 
 
@@ -36,7 +35,6 @@ async function getAllMessages() {
         FROM messages INNER JOIN users
         ON users.id = messages.user_id;
         `)
-    console.log(rows)
     return rows
     
 }

@@ -9,7 +9,6 @@ async function displayRegisterForm(req,res,next) {
 }
 
 async function storeRegisterData(req,res) {
-    console.log(res.locals.data)
     try{
         insertIntoUsers({
             username:res.locals.data.username,
@@ -30,16 +29,10 @@ function displayLoginForm(req,res,next){
     res.render('login',{session:req.session})
 }
 
-async function storeLoginData(req,res,next) {
-    console.log(res.locals.data)
-    res.redirect('/')
-    
-}
 
 
 module.exports = {
     displayRegisterForm,
     storeRegisterData,
     displayLoginForm,
-    storeLoginData,
 }
