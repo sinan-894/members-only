@@ -30,6 +30,17 @@ async function deleteUserFromUsers({id}) {
     
 }
 
+async function getAllMessages() {
+    const {rows} = await pool.query(`
+        SELECT users.id as id,users.fullname as author,date,text
+        FROM messages INNER JOIN users
+        ON users.id = messages.user_id;
+        `)
+    console.log(rows)
+    return rows
+    
+}
+
 async function getUserDataByUsername(username) {
     const {rows} = await pool.query('select * from users where username=$1;',[username])
     return rows[0]
@@ -55,4 +66,5 @@ module.exports = {
     getUserDataByUsername,
     deleteUserFromUsers,
     updateMembershipInUsers,
+    getAllMessages,
 }

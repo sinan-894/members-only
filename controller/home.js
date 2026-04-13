@@ -1,4 +1,4 @@
-const { updateMembershipInUsers, insertIntoMessages } = require("../database/queries")
+const { updateMembershipInUsers, insertIntoMessages, getAllMessages } = require("../database/queries")
 const { formatDate } = require("../helpers/helper")
 
 const messagesTest = [
@@ -15,14 +15,14 @@ const messagesTest = [
         text:'hi this is also test siuuuuu'
     }
 ]
-function displayHomePage(req,res){
+async function displayHomePage(req,res){
     
     res.render('homepage',{
         isLogin:req.user,
         isMember:req.user && req.user.is_member,
         isAdmin:req.user && req.user.is_admin,
         fullname:req.user && req.user.fullname,
-        messages:messagesTest,
+        messages:await getAllMessages(),
     })
 }
 
