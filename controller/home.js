@@ -34,8 +34,14 @@ function deleteMessage(req,res){
     res.redirect('/')
 }
 
+function addMember(req,res){
+    if(!req.user) return res.redirect('/')
+    console.log('new member',req.user.id)
+}
+
 module.exports = {
     displayHomePage,
     storeMessage,
     deleteMessage,
+    addMember,
 }

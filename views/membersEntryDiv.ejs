@@ -1,0 +1,14 @@
+<div class="members-entry">
+    <section>
+        enter the secret code to be a member
+    </section>
+    <form action="/add-member" method="post">
+        <input type="text" name="membership-password" >
+        <input type="submit" value="enter">
+    </form>
+    <% if (isNotMatch) { %>
+        <section>Wrong passcode</section>
+
+    <% } %>
+
+</div>

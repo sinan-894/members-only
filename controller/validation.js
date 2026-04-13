@@ -51,3 +51,17 @@ exports.validateMessage = [
         
     }
 ]
+
+exports.validateMembersPassword = [
+    body('membership-password')
+        .custom(value=>value==process.env.MEMBERSHIP_PASSWORD).withMessage('Wrong password'),
+    (req,res,next)=>{
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            res.locals.isMembershipPasswordNotMatch = true 
+            return displayHomePage(req,res)
+
+        }
+        next()
+    }
+]
