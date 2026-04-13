@@ -1,3 +1,4 @@
+const { updateMembershipInUsers } = require("../database/queries")
 
 const messagesTest = [
     {
@@ -34,9 +35,12 @@ function deleteMessage(req,res){
     res.redirect('/')
 }
 
-function addMember(req,res){
+async function addMember(req,res){
     if(!req.user) return res.redirect('/')
     console.log('new member',req.user.id)
+    await updateMembershipInUsers(req.user.id)
+    
+    res.redirect('/')
 }
 
 module.exports = {

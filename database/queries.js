@@ -39,7 +39,12 @@ async function getUserDataByUsername(username) {
 async function getUserDataById(id) {
     const {rows} = await pool.query('select * from users where id=$1;',[id])
     return rows[0]
+    
+}
 
+async function updateMembershipInUsers(id) {
+    await pool.query('update users set is_member=TRUE where id=$1;',[id])
+    
     
 }
 
@@ -49,4 +54,5 @@ module.exports = {
     getUserDataById,
     getUserDataByUsername,
     deleteUserFromUsers,
+    updateMembershipInUsers,
 }
