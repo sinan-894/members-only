@@ -1,4 +1,4 @@
-const { updateMembershipInUsers, insertIntoMessages, getAllMessages } = require("../database/queries")
+const { updateMembershipInUsers, insertIntoMessages, getAllMessages, deleteUserFromUsers } = require("../database/queries")
 const { formatDate } = require("../helpers/helper")
 
 async function displayHomePage(req,res){
@@ -23,8 +23,9 @@ function storeMessage(req,res){
     res.redirect('/')
 }
 
-function deleteMessage(req,res){
+async function deleteMessage(req,res){
     console.log(req.query.id)
+    await deleteUserFromUsers(req.query.id)
     res.redirect('/')
 }
 

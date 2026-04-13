@@ -20,9 +20,9 @@ async function insertIntoMessages({id,text,date}) {
     
 }
 
-async function deleteUserFromUsers({id}) {
+async function deleteUserFromUsers(id) {
     await pool.query(`
-        DELETE FROM users
+        DELETE FROM messages 
         WHERE id=$1;
         `,[id])
 
@@ -31,7 +31,7 @@ async function deleteUserFromUsers({id}) {
 
 async function getAllMessages() {
     const {rows} = await pool.query(`
-        SELECT users.id as id,users.fullname as author,date,text
+        SELECT messages.id as id,users.fullname as author,date,text
         FROM messages INNER JOIN users
         ON users.id = messages.user_id;
         `)
